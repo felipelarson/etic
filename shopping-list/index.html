@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>🤘 Awesome Shopping List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="container-fluid d-flex flex-column min-vh-100">
+  <svg class="d-none">
+    <symbol id="icon-add" viewBox="0 0 512 512">
+      <path fill="currentColor" d="M416 277H277v139h-42V277H96v-42h139V96h42v139h139v42z" />
+    </symbol>
+    <symbol id="icon-remove" viewBox="0 0 448 512">
+      <path fill="currentColor" d="M296 432h16a8 8 0 008-8V152a8 8 0 00-8-8h-16a8 8 0 00-8 8v272a8 8 0 008 8zm-160 0h16a8 8 0 008-8V152a8 8 0 00-8-8h-16a8 8 0 00-8 8v272a8 8 0 008 8zM440 64H336l-34-45a48 48 0 00-38-19h-80a48 48 0 00-38 19l-34 45H8a8 8 0 00-8 8v16a8 8 0 008 8h24v368a48 48 0 0048 48h288a48 48 0 0048-48V96h24a8 8 0 008-8V72a8 8 0 00-8-8zM171 38a16 16 0 0113-6h80a16 16 0 0113 6l19 26H152zm213 426a16 16 0 01-16 16H80a16 16 0 01-16-16V96h320zm-168-32h16a8 8 0 008-8V152a8 8 0 00-8-8h-16a8 8 0 00-8 8v272a8 8 0 008 8z" />
+    </symbol>
+  </svg>
+  <header class="my-4">
+    <h1 class="text-center">
+      <span class="mood-text">Sad</span> Shopping List <span class="mood-emoji">😢</span>
+    </h1>
+  </header>
+  <main class="row justify-content-center flex-grow-1">
+    <div class="col shopping-list">
+      <div id="empty-message" class="border rounded text-center d-none p-3">
+        This list has no items. Terrible. Sad.<br>
+        We'll be adding items, some beautiful items...<br>
+        ...and we're going to Make this List Great Again!
+      </div>
+      <ul id="shopping-list" class="list-group mb-3"></ul>
+      <form id="shopping-list-form" class="d-flex flex-wrap align-items-center gutters">
+        <input name="name" type="text" class="form-control col-12 col-sm" placeholder="Name" required>
+        <div class="input-group col-8 col-sm pl-0 p-sm-0">
+          <input name="quantity" type="number" class="form-control" placeholder="Qty" min="0" required>
+          <div class="input-group-append">
+            <select class="custom-select" name="unit">
+              <option value="" selected>units</option>
+              <option value="kg">kg</option>
+              <option value="g">g</option>
+              <option value="l">l</option>
+              <option value="ml">ml</option>
+              <option value="m">m</option>
+              <option value="cmm">cm</option>
+            </select>
+          </div>
+        </div>
+        <button name="submit" id="button-add" type="submit" class="btn btn-success text-nowrap col-4 col-sm-auto">
+          <svg aria-hidden="true"><use xlink:href="#icon-add"></use></svg>
+          <span>Add Item</span>
+        </button>
+      </form>
+    </div>
+  </main>
+  <footer class="text-center py-3">
+    Made with 💖 @ <a href="https://www.etic.pt/" target="_blank" rel="noreferrer">etic_</a>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
