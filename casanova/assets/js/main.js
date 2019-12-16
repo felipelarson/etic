@@ -1,5 +1,15 @@
 (function() {
 
+  /* UTILS */
+  function normalize(str) {
+    return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function slugify(str) {
+    return normalize(str).replace(/[\s_-]/g, '-');
+  }
+
+  /* VARIABLES */
   var products = [
     {
       "name": "Girafa em Betão Armado",
@@ -43,22 +53,48 @@
     }
   ];
 
-  var productsContainer = document.querySelector('.products');
+  var productsList = document.querySelector('#products ul');
+  var now = new Date();
 
+  /* METHODS */
   function renderProduct(product) {
-    return [
-      '<div>',
-        '<img src="' + product.image + '">',
-        '<h3>' + product.name + '</h3>',
-      '</div>',
+    productsList.innerHTML += [
+      '<li>',
+        '<a href="products/' + slugify(product.name) + '">',
+          '<figure class="ratio ratio-1by1">',
+            '<img src="' + product.image + '" alt="' + product.name + '" aria-hidden="true">' +
+          '</figure>',
+          '<h2>' + product.name + '</h2>',
+        '</a>',
+      '</li>',
     ].join('');
   }
 
+  function setCopyrightRange() {
+    var dateRange = document.querySelector('.date-range');
+    var startDate = new Date(2018, 0, 1);
+    var endDate = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
+    dateRange.innerHTML += [
+      '<time datetime="' + startDate.toISOString() + '">' + startDate.getFullYear() + '</time>',
+      '-',
+      '<time datetime="' + endDate.toISOString() + '">' + endDate.getFullYear() + '</time>',
+    ].join(' ');
+  }
+
   /*
-  iterar sobre o array de produtos
-  e adicionar ao html do container o resultado da função renderProduct
+    SEARCH PRODUCTS
+    1) seleccionar o input de pesquisa com .querySelector()
+    2) adicionar um event listener com .addEventListener() do tipo 'keyup' ao input de pesquisa
+    3) passar uma função anónima que recebe o evento
+    4) criar uma variável "value" e atribuir-lhe o valor do input (event.target.value)
+    5) filtrar o array de produtos com o método .filter()
+    6) passar uma função anónima ao método .filter() que recebe o item do array
+    7) retornar o teste se o nome normalizado do item corresponde ao valor normalizado da pesquisa
+    8) a seguir ao .filter() usar o métido .forEach() passando a função renderProduct
   */
 
-
+  /* INIT */
+  products.forEach(renderProduct);
+  setCopyrightRange();
 
 })();
