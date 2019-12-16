@@ -54,7 +54,7 @@
   ];
 
   var productsList = document.querySelector('#products ul');
-  var now = new Date();
+  
 
   /* METHODS */
   function renderProduct(product) {
@@ -71,8 +71,9 @@
   }
 
   function setCopyrightRange() {
+    var now = new Date();
     var dateRange = document.querySelector('.date-range');
-    var startDate = new Date(2018, 0, 1);
+    var startDate = new Date(1980, 9, 6);
     var endDate = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
     dateRange.innerHTML += [
       '<time datetime="' + startDate.toISOString() + '">' + startDate.getFullYear() + '</time>',
