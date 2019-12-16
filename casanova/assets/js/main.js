@@ -84,7 +84,7 @@
   /*
     SEARCH PRODUCTS
     1) seleccionar o input de pesquisa com .querySelector()
-    2) adicionar um event listener com .addEventListener() do tipo 'keyup' ao input de pesquisa
+    2) adicionar um event listener com .addEventListener() do tipo 'input' ao input de pesquisa
     3) passar uma função anónima que recebe o evento
     4) criar uma variável "value" e atribuir-lhe o valor do input (event.target.value)
     5) filtrar o array de produtos com o método .filter()
@@ -92,6 +92,20 @@
     7) retornar o teste se o nome normalizado do item corresponde ao valor normalizado da pesquisa
     8) a seguir ao .filter() usar o métido .forEach() passando a função renderProduct
   */
+
+  var input = document.querySelector('.search input');
+
+  input.addEventListener('input', function(evt) {
+    var value = evt.target.value;
+
+    productsList.innerHTML = '';
+
+    products.filter(function(product) {
+      //return product.name.toLocaleLowerCase().includes(value.toLowerCase());
+      // return product.name.indexOf(value);
+      return normalize(product.name).includes(normalize(value));
+    }).forEach(renderProduct); 
+  });
 
   /* INIT */
   products.forEach(renderProduct);

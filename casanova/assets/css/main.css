@@ -215,7 +215,7 @@ main > *:not(:last-child) {
 
 .products li h2 {
     font-size: .75rem;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     padding: 1rem;
 }
 
