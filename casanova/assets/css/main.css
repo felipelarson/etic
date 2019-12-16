@@ -1,3 +1,9 @@
+/* VARIABLES */
+:root {
+    --light-gray: #f2f2f2;
+    --dark-gray: #333;
+}
+
 /* RESET */
 *, ::before, ::after {
     box-sizing: border-box;
@@ -5,6 +11,7 @@
     padding: 0;
 }
 
+/* UTILS */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -58,13 +65,15 @@
     padding-top: 56.25%;
 }
 
+/* DEFAULTS */
 html, body {
     height: 100%;
+    color: var(--dark-gray);
 }
 
 a {
     text-decoration: none;
-    color: #222;
+    color: var(--dark-gray);
 }
 
 img {
@@ -73,7 +82,7 @@ img {
 
 body {
     padding: 3rem;
-    background: #f2f2f2;
+    background: var(--light-gray);
     font-family: Verdana, Arial, sans-serif;
 }
 
@@ -114,7 +123,7 @@ main > *:not(:last-child) {
     left: 100%;
     width: 1rem;
     height: 100%;
-    border-right: 1px solid #222;
+    border-right: 1px solid var(--dark-gray);
 }
 
 /* MAIN */
@@ -128,7 +137,7 @@ main > *:not(:last-child) {
     overflow: hidden;
     text-transform: uppercase;
     text-align: center;
-    color: #fff;
+    color: white;
     padding: 1rem;
 }
 
@@ -158,17 +167,14 @@ main > *:not(:last-child) {
 }
 
 /* SEARCH */
-.search,
 .search label {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.search label {
-    background: #fff;
     width: 30rem;
     max-width: 100%;
+    margin: 0 auto;
+    background: white;
 }
 
 .search input {
@@ -196,7 +202,7 @@ main > *:not(:last-child) {
 
 .products li a {
     display: block;
-    background: #fff;
+    background: white;
     transition: all .3s ease-out;
 }
 
@@ -215,8 +221,8 @@ main > *:not(:last-child) {
 
 /* FOOTER */
 .footer{
-    background: #fff;
-    color:#666;
+    background: white;
+    color: var(--dark-gray);
     font-size: .875rem;
     padding: 2rem;
 }
